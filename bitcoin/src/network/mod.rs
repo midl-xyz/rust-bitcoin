@@ -182,7 +182,7 @@ impl Network {
             Network::Bitcoin => "main",
             // For user-side compatibility, testnet3 is retained as test
             Network::Testnet(TestnetVersion::V3) => "test",
-            Network::Testnet(TestnetVersion::V4) => "test4",
+            Network::Testnet(TestnetVersion::V4) => "testnet4",
             Network::Signet => "signet",
             Network::Regtest => "regtest",
         }
@@ -203,7 +203,7 @@ impl Network {
         let network = match core_arg {
             "main" => Bitcoin,
             "test" => Testnet(TestnetVersion::V3),
-            "test4" => Testnet(TestnetVersion::V4),
+            "testnet4" => Testnet(TestnetVersion::V4),
             "signet" => Signet,
             "regtest" => Regtest,
             _ => return Err(ParseNetworkError(core_arg.to_owned())),
@@ -503,7 +503,7 @@ mod tests {
         let expected_pairs = [
             (Network::Bitcoin, "main"),
             (Network::Testnet(crate::TestnetVersion::V3), "test"),
-            (Network::Testnet(crate::TestnetVersion::V4), "test4"),
+            (Network::Testnet(crate::TestnetVersion::V4), "testnet4"),
             (Network::Regtest, "regtest"),
             (Network::Signet, "signet"),
         ];
